@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Mahasiswa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <img src="profil2.jpg" alt="Profile Picture" class="profile-pic">
+        <h2>Profil Mahasiswa</h2>
+    </header>
+
+    <nav class="sidebar">
+        <ul>
+            <li><a href="#" data-section="biodata"><b>Biodata</b></a></li>
+            <li><a href="#" data-section="pendidikan"><b>Pendidikan</b></a></li>
+            <li><a href="#" data-section="pengalaman"><b>Pengalaman</b></a></li>
+            <li><a href="#" data-section="keahlian"><b>Keahlian</b></a></li>
+            <li><a href="#" data-section="publikasi"><b>Publikasi</b></a></li>
+        </ul>
+    </nav>
+
+    <section id="content">
+        <!-- Konten default akan tampil di sini (Biodata) -->
+    </section>
+
+    <aside>
+        <h3>Hobby</h3>
+        <ul>
+            <li>Koleksi Barang</li>
+            <li>Jalan-jalan</li>
+            <li>Plays Everything</li>
+            <li>Music Enjoyers</li>
+        </ul>
+    </aside>
+
+    <footer>
+        <p><b>GitHub: SatrioMW</b><br>
+        <b>Instagram: @strhtma</b><br>
+        </p>
+        <p><b>© Copyright 2024. All Rights Reserved.</b></p>
+        <p><b>Responsive Profile by Satrio</b><br>
+           We Make It Happen<br></p>
+    </footer>
+
+    <!-- Script dimasukkan langsung ke dalam file HTML -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contentElement = document.getElementById('content');
+
+            // Konten untuk setiap bagian
+            const sections = {
+                biodata: `
+                    <section class="biodata">
+                        <h2>Biodata</h2>
+                        <p><strong>NIM:</strong> 2023081060</p>
+                        <p><strong>Prodi:</strong> Sistem Informasi</p>
+                        <p><strong>Nama:</strong> Satrio Hutama Maiza Wijanarko</p>
+                        <p><strong>Agama:</strong> Islam</p>
+                        <p><strong>Tanggal Lahir:</strong> 16 Agustus 2005</p>
+                        <p><strong>Tempat Lahir:</strong> Jakarta</p>
+                    </section>
+                `,
+                pendidikan: `
+                    <section class="pendidikan">
+                        <h2>Pendidikan</h2>
+                        <ul>
+                            <li>MAN 11 Jakarta (2019 - 2022)</li>
+                            <li>MTsN 1 Tangsel (2016 - 2019)</li>
+                            <li>SDIT Al Inayah (2010 - 2016)</li>
+                        </ul>
+                    </section>
+                `,
+                pengalaman: `
+                    <section class="pengalaman">
+                        <h2>Pengalaman</h2>
+                        <ul>
+                            <li>Olimpiade Sains Nasional (2013)</li>
+                            <li>Lembaga Tahfidz (2015)</li>
+                        </ul>
+                    </section>
+                `,
+                keahlian: `
+                    <section class="keahlian">
+                        <h2>Keahlian</h2>
+                        <ul>
+                            <li>Pemrograman Tipis-tipis</li>
+                        </ul>
+                    </section>
+                `,
+                publikasi: `
+                    <section class="publikasi">
+                        <h2>Publikasi</h2>
+                        <ul>
+                            <li>Surat Tugas Eksternail/Internal (2024)</li>
+                        </ul>
+                    </section>
+                `
+            };
+
+            // Menampilkan konten default (Biodata)
+            contentElement.innerHTML = sections.biodata;
+
+            // Event listener untuk tiap menu sidebar
+            const menuItems = document.querySelectorAll('.sidebar a');
+            menuItems.forEach(item => {
+                item.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const section = this.getAttribute('data-section');
+                    contentElement.innerHTML = sections[section];
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
